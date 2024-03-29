@@ -1,6 +1,6 @@
 import { useRouteStore } from "@/store";
 import React from "react";
-import { Row, Space } from "@douyinfe/semi-ui";
+import { Row } from "@douyinfe/semi-ui";
 import "./index.scss";
 
 const RouteTip: React.FC = () => {

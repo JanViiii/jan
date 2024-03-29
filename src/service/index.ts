@@ -32,7 +32,7 @@ export class ApiService {
         })
     }
 
-    static mockRouteSuccess(token: string) {
+    static mockRouteSuccess() {
         return CustomFetch({
             path: '/mock/route/success',
             method: 'get',
