@@ -29,7 +29,7 @@ const SearchBar: React.FC = () => {
       origin: condition.origin.name,
       destination: condition.destination.name,
     })
-      .then((res) => ApiService.mockRouteSuccess(res.token))
+      .then((res) => ApiService.getRouteFromToken(res.token))
       .then((res) => {
         const { path } = res;
         const positionList = path?.map((position, index) => ({
