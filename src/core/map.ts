@@ -27,11 +27,11 @@ export class MapCore {
 
     async init() {
         (window as any)._AMapSecurityConfig = {
-            securityJsCode: "eaa809301fce4c5147b976a8266d91cd",
+            securityJsCode: import.meta.env.VITE_SECRET,
         };
 
         AMapLoader.load({
-            key: "8c2ec344929884a0e53f1d3ac06402ed", //申请好的 Web 端开发者 Key，首次调用 load 时必填
+            key: import.meta.env.VITE_KEY, //申请好的 Web 端开发者 Key，首次调用 load 时必填
             version: "2.0",
             plugins: ['AMap.PlaceSearch', 'AMap.Geolocation', 'AMap.Driving'],
         }).then((AMap) => {
