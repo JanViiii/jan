@@ -1,0 +1,23 @@
+@mixin custom-scroll($direction: y) {
+    --thumb-color: #6281a3;
+    --bar-size: 3px;
+
+    &::-webkit-scrollbar {
+      @if ($direction == y) {
+        width: var(--bar-size);
+      }
+      @if ($direction == x) {
+        height: var(--bar-size);
+      }
+    }
+      
+    &::-webkit-scrollbar-corner,
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+      
+    &::-webkit-scrollbar-thumb {
+      border-radius: 6px;
+      background: var(--thumb-color);
+    }
+  }
