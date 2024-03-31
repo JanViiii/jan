@@ -74,6 +74,7 @@ export class MapCore {
 
     locate(position: any) {
         this.mapInstance.panTo(position)
+        this.mapInstance.setZoom(14)
     }
 
     createMark(label: string, position: any,) {
