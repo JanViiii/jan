@@ -51,7 +51,7 @@ const PlaceSearch: React.FC<_PlaceSearch> = (props) => {
               );
             })
             .catch((err) => {
-              Toast.error(`查询错误，${err.message}`);
+              Toast.error(`查询错误，${err}`);
             })
             .finally(() => {
               setLoading(false);
@@ -79,6 +79,10 @@ const PlaceSearch: React.FC<_PlaceSearch> = (props) => {
         placeholder={placeholder}
         value={value}
         onChange={handleChange as any}
+        position="bottomRight"
+        dropdownStyle={{
+          maxWidth: 350,
+        }}
       />
     </Row>
   );

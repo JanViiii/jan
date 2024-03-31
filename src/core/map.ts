@@ -50,25 +50,19 @@ export class MapCore {
                 zoomToAccuracy: true,  //  定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
                 position: 'RB' //  定位按钮的排放位置,  RB表示右下
             })
+            this.mapInstance = new AMap.Map(this.target);
+            this.mapDriving = new AMap.Driving({
+                policy: 0, //驾车路线规划策略，0是速度优先的策略
+                map: this.mapInstance
+            })
             // 获取定位
             this.mapGeo.getCurrentPosition((status: string, result: any) => {
                 processCallback(status, result)
                     .then(res => {
-                        // 定位成功 设置center
-                        this.mapInstance = new AMap.Map(this.target, {
-                            center: res.position,
-                            zoom: 15
-                        });
+                        this.locate(res.position)
                     })
-                    .catch(() => {
-                        // 定位失败则直接初始化
-                        this.mapInstance = new AMap.Map(this.target);
-                    })
-                    .finally(() => {
-                        this.mapDriving = new AMap.Driving({
-                            policy: 0, //驾车路线规划策略，0是速度优先的策略
-                            map: this.mapInstance
-                        })
+                    .catch(err => {
+                        console.error(err);
                     })
             });
 

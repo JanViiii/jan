@@ -3,6 +3,6 @@ export const processCallback = <T>(status: string, response: T): Promise<T> => n
     if (status == 'complete') {
         rs(response);
     } else {
-        rj((response as any)?.info || '未知错误')
+        rj((response as any)?.message || (response as any)?.info || '未知错误')
     }
 })
